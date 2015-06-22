@@ -9,16 +9,16 @@ This page compiles the ones that we think are the most useful. If you find somet
 
 #Cocos2D and SpriteBuilder Documentation
 
-- (Official Documentation)[https://www.makeschool.com/docs/]
+- [Official Documentation](https://www.makeschool.com/docs/)
 
 #Game Design
 
-- (Extra Credits)[https://www.youtube.com/user/ExtraCreditz], great series of short videos
+- (Extra Credits)[https://www.youtube.com/user/ExtraCreditz), great series of short videos
 
 #Art Assets
 
 > [info]
 > Make sure to pay attention the licenses of any art you use! We'll be giving a talk on copyright in week 4.
 
-- (Sprite Hoard)[https://www.makeschool.com/academy/art/set]
-- (OpenGameArt)[http://opengameart.org/]
+- [Sprite Hoard](https://www.makeschool.com/academy/art/set)
+- [OpenGameArt](http://opengameart.org/)
