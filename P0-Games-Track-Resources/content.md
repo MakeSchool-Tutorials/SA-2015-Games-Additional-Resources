@@ -13,7 +13,7 @@ This page compiles the ones that we think are the most useful. If you find somet
 
 #Game Design
 
-- (Extra Credits)[https://www.youtube.com/user/ExtraCreditz), great series of short videos
+- [Extra Credits](https://www.youtube.com/user/ExtraCreditz), great series of short videos
 
 #Art Assets
 
