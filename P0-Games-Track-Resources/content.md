@@ -7,9 +7,10 @@ There are many useful tutorials and talks that are a great addition to our core 
 
 This page compiles the ones that we think are the most useful. If you find something missing - let us know!
 
-##Cocos2D and SpriteBuilder Documentation
+##Cocos2D and SpriteBuilder
 
 - [Official Documentation](https://www.makeschool.com/docs/)
+- [Rename a SpriteBuilder Project](http://meachware.blogspot.com/2015/04/rename-spritebuilder-project.html)
 
 ##Game Design
 
