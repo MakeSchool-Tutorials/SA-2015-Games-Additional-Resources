@@ -10,6 +10,7 @@ This page compiles the ones that we think are the most useful. If you find somet
 ##Cocos2D and SpriteBuilder
 
 - [Official Documentation](https://www.makeschool.com/docs/)
+- [Animations in SpriteBuilder](https://www.makeschool.com/sa/tutorial/lectures/spritebuilder-animations)
 - [Rename a SpriteBuilder Project](http://meachware.blogspot.com/2015/04/rename-spritebuilder-project.html)
 
 ##Game Design
