@@ -10,15 +10,15 @@ It is a living document. You should be changing and tweaking it at least twice a
 
 Once you have made a GDD, it becomes much easier to visualize everything you have to complete to get your game done and you will be able to keep track of your progress.
 
-Whever you decide to change some aspect of your game's design or development schedule, make sure to update your GDD!
+Whenever you decide to change some aspect of your game's design or development schedule, make sure to update your GDD!
 
-Go to Github.com and create a new project. When viewing your empty project, there will be a link in the right sidebar that says "Wiki".
+Go to Github.com and create a new repository. When viewing your empty repository, there will be a link in the right sidebar that says "Wiki".
 
-Create a new page in your project's Wiki and name it "GDD".
+Create a new page in your repository's Wiki and name it "GDD".
 
-Create five main sections: Objective, Gameplay Mechanics, Level Design, Technical, and MVP Milestones.
+Create five main sections (click 'h3' or 'h2' before typing the name): Objective, Gameplay Mechanics, Level Design, Technical, and MVP Milestones.
 
-Inside of Technical, create three subsections: Controls, Scenes, and Classes/CCBs.
+Inside of Technical, create three subsections (use a smaller header for this one): Controls, Scenes, and Classes/CCBs.
 
 Inside of MVP Milestones list each remaining week of development.
 
