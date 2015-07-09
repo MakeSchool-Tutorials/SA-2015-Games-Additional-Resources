@@ -10,7 +10,7 @@ It is a living document. You should be changing and tweaking it at least twice a
 
 Once you have made a GDD, it becomes much easier to visualize everything you have to complete to get your game done and you will be able to keep track of your progress.
 
-Whever you decide to change some aspect of your game's design or development schedule, make sure to update your GDD!
+Whenever you decide to change some aspect of your game's design or development schedule, make sure to update your GDD!
 
 Go to Github.com and create a new repository. When viewing your empty repository, there will be a link in the right sidebar that says "Wiki".
 
