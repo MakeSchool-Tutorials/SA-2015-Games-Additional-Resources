@@ -16,7 +16,7 @@ Go to Github.com and create a new repository. When viewing your empty repository
 
 Create a new page in your repository's Wiki and name it "GDD".
 
-Create five main sections (click 'h3' or 'h2 before typing the name): Objective, Gameplay Mechanics, Level Design, Technical, and MVP Milestones.
+Create five main sections (click 'h3' or 'h2' before typing the name): Objective, Gameplay Mechanics, Level Design, Technical, and MVP Milestones.
 
 Inside of Technical, create three subsections (use a smaller header for this one): Controls, Scenes, and Classes/CCBs.
 
