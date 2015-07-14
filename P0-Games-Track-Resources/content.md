@@ -25,4 +25,4 @@ This page compiles the ones that we think are the most useful. If you find somet
 - [Sprite Hoard](https://www.makeschool.com/academy/art/set)
 - [OpenGameArt](http://opengameart.org/)
 - [Graphic River](http://graphicriver.net/) (cheap resources)
-- [Freesound](https://www.freesound.org/) (sound effects)
+- [Freesound](https://www.freesound.org/) (sound effects and music)
