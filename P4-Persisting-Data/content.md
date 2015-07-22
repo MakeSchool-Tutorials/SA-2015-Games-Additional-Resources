@@ -1,5 +1,5 @@
 ---
-slug: Game-Design-Document
+slug: Persisting-Data
 ---
 
 Storing data across multiple uses is critical for a winning app or game.  Who would play a game that forgets your high score or use an app doesn't remember who you are?  Fortunately Apple provides a simple way of storing commonly used data.  It does this through the *NSUserDefaults* class.  Reading the [documentation](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/#//apple_ref/occ/clm/NSUserDefaults/standardUserDefaults) does not make this very obvious, so we'll provide an example so you can get started right away.
