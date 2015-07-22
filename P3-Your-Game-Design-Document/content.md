@@ -3,8 +3,6 @@ title: Game Design Document
 slug: Game-Design-Document
 ---
 
-#Game Design Documents
-
 A Game Design Document (GDD) is meant to detail the objective, mechanics, level design, technical requirements, and development milestones for your game.
 
 It is a living document. You should be changing and tweaking it at least twice a week.
