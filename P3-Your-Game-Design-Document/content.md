@@ -1,4 +1,5 @@
 ---
+title: Game Design Document
 slug: Game-Design-Document
 ---
 
