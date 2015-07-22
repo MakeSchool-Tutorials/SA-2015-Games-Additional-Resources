@@ -23,7 +23,7 @@ Now we will see a class that uses *NSUserDefaults* to store data, as well as a f
 			}
 		}
 		
-		var highScore: Int = NSUserDefaults.standardUserDefaults().stringForKey("myHighScore") ?? 0 {
+		var highScore: Int = NSUserDefaults.standardUserDefaults().integerForKey("myHighScore") ?? 0 {
 			didSet {
 				NSUserDefaults.standardUserDefaults().setInteger(highScore, forKey:"myHighScore")
 				NSUserDefaults.standardUserDefaults().synchronize()
