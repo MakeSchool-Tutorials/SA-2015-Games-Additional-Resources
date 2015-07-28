@@ -108,6 +108,8 @@ _Cocos2D_ sets up projects a bit differently than _CocoaPods_ expects. Let's get
 > ![](./ldflag.png)
 >
 > Back in the search bar, type `header search`. Add `$(inherited)` to *Header Search Paths*.
+>
+> ![](./header_search.png)
 
 #Importing Mixpanel
 
