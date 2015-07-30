@@ -41,7 +41,7 @@ After a while the installation should complete successfuly!
 Now we can create a _Podfile_ that will allow us to declare dependencies for our project. The _CocoaPods_ tool provides us with a convenient method to do this:
 
 > [action]
-> Open the root directory of your project in a terminal and type:
+> Open the root directory of your project (the .spritebuilder folder) in a terminal and type:
 >
 >        pod init
 
@@ -68,11 +68,13 @@ Now we are ready to add a dependency to this file. For the feature we want to im
 It will help us to convert time spans into human readable strings.
 
 > [action]
-> Add the _Mixpanel_ dependency to your _Podfile_ so that it looks like this:
+> Add the _Mixpanel_ dependency to your _Podfile_ and add `use_frameworks!` at the top so that it looks like this:
 >
 >        # Uncomment this line to define a global platform for your project
 >        # platform :ios, '6.0'
->    
+>
+>       use_frameworks!
+>
 >        target 'ProjectName iOS' do
 >          pod 'Mixpanel'
 >        end
@@ -111,16 +113,18 @@ _Cocos2D_ sets up projects a bit differently than _CocoaPods_ expects. Let's get
 >
 > ![](./header_search.png)
 
-#Importing Mixpanel
+<!-- NOT REQUIRED because of use_frameworks! config
 
-Mixpanel is written in Objetive-C, Apple's old default programming language for iOS. It needs to be imported through the the _Bridging Header_.
+#Importing Mixpanel-->
 
-> [action]
-> Add the _Mixpanel_ library to your project's' bridging header by adding the following line:
->
->        #import "Mixpanel.h"
->
-> ![](./bridge.png)
+<!--Mixpanel is written in Objetive-C, Apple's old default programming language for iOS. It needs to be imported through the the _Bridging Header_.-->
+
+<!--> [action]-->
+<!--> Add the _Mixpanel_ library to your project's' bridging header by adding the following line:-->
+<!-->-->
+<!-->        #import "Mixpanel.h"-->
+<!-->-->
+<!--> ![](./bridge.png)-->
 
 #Signing up for Mixpanel
 
