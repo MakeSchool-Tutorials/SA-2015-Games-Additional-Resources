@@ -22,7 +22,7 @@ Go ahead and fire up CrazyBump.  This tool automates most of the normal map gene
 
 ![](./CrazyBump.gif)
 
-Feel free to experiment with the normal map sliders to observe how they influence the map.  We'll provide a couple assets and normal maps ([download here]()) or you can make your own.  Now you're ready to set the scene with SpriteBuilder.
+Feel free to experiment with the normal map sliders to observe how they influence the map.  We'll provide a couple assets and normal maps ([download here](https://github.com/MakeSchool-Tutorials/SA-2015-Apps-Additional-Resources/raw/master/P7-2D-Lighting/assets.zip)) or you can make your own.  Now you're ready to set the scene with SpriteBuilder.
 
 #SpriteBuilder
 
