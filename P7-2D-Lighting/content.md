@@ -26,16 +26,6 @@ Feel free to experiment with the normal map sliders to observe how they influenc
 
 #SpriteBuilder
 
-1. create a new project
-2. remove template elements
-3. add assets to file view
-4. drag image(s) onto timeline
-5. add corresponding normal map
-6. add lighting effect to ccsprite
-7. add CCLightNode to timeline
-8. explain different light types
-9. code connection for cclightnode
-
 Create a new project in SpriteBuilder with Swift as the primary language.  We won't need the label or gradient background, remove those.  Drag the assets into the project's file view.  The project should resemble something like this:
 
 ![](./SpriteBuilder_New.png)
@@ -64,7 +54,7 @@ Finally, add a doc root var code connection to the light node so it can be acces
 
 #Xcode
 
-With everything set up in SpriteBuilder, it is now time to add an interactive component.  Click File > Open Project in Xcode to switch over to Xcode.  Add a little code to MainScene.swift that updates the position of the light node that was created.  Here's a template to build off of:
+With everything set up in SpriteBuilder, it is now time to add an interactive component.  Click File > Open Project in Xcode to switch over to Xcode (be sure to publish first).  Add a little code to MainScene.swift that updates the position of the light node that was created.  Here's a template to build off of:
 
 	class MainScene: CCNode {
 		
@@ -76,9 +66,9 @@ With everything set up in SpriteBuilder, it is now time to add an interactive co
 		}
 		
     	override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-    		let touch = touch.locationInNode(self) as CGPoint
+    		let touchPoint = touch.locationInNode(self) as CGPoint
     		
-    		lightNode.position = touch
+    		lightNode.position = touchPoint
     	}
 	
 	}
@@ -87,8 +77,8 @@ Adding this code will update the light's position every time the screen is touch
 
 ![](./light-demo.gif)
 
-I suggest going back and updating the properties of the light node and see how they influence the scene.
+I suggest going back and updating the properties of the light node in SpriteBuilder and see how they influence the scene.
 	
 #Summary
 
-
+Cocos2D provides a mechanism to add brilliant 2D lighting effects to games.  It has two requirements, normal maps for the sprites and a *CCLightNode*.  Once these elements are added, enabling the lighting effect for a *CCSprite* causes a remarkable transformation.  Use the effect to add a unique polish that will set it apart!  Happy coding!
