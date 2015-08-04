@@ -1,5 +1,5 @@
 ---
-title: "Get started with this tutorial!"
+title: "2D Lighting Effects"
 slug: 2d-lighting
 ---
 
