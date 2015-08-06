@@ -22,7 +22,9 @@ Sign on to iTunes Connect and navigate to "My Apps".  Select the app that you wa
 
 Navigate to the In-App Purchase tab and create a new IAP.  Now its time to choose what kind of IAP your product will offer.  Apple provides five different IAP options, grouped into subscription and consumable types.  You will probably choose the one of the consumable types, and it's important to know the difference.  
 
-Consumable purchases provide a benefit once, say some extra coins to spend.  Non-Consumable purchase provide a permanent benefit, like unlocking a new character.  Consumable purchases cannot be restored.  Non-consumable purchases can be restored, and Apple requires an app to allow customers to restore these purchases.  
+Consumable purchases provide a benefit once, say some extra coins to spend.  Non-Consumable purchase provide a permanent benefit, like unlocking a new character.  Consumable purchases cannot be restored.  Non-consumable purchases can be restored, and Apple requires an app to allow customers to restore these purchases.  Regardless of the option you choose, the information required is similar across all types. 
+
+
 
 
 
@@ -94,9 +96,7 @@ The transaction is finished by providing the transaction as an argument to a _qu
             }
         }
         
-Reviewing the code reveals another value for the *transactionState* to be in.  The extra state to be aware of is _.Restored_.  Any IAP that is non-consumable has to have a mechanism to restore it.  Apple will not approve an app that does not have this.  Fortunately, there is a straightforward way to initiate the restoration.  
-
-
+Reviewing the code reveals another value for the *transactionState* to be in.  The extra state to be aware of is _.Restored_.  Any IAP that is non-consumable has to have a mechanism to restore it.  **Apple will not approve an app that does not have this**.  Fortunately, there is a straightforward way to initiate the restoration.  Using the same *SKPaymentQueue* singleton from before, call the function _restoreCompletedTransactions()_ to begin the restoration process.  Don't forget to add an observer before starting the restoration.   
 
         //called by you, to start restore purchase process
         func attemptRestorePurchase() {
@@ -105,11 +105,24 @@ Reviewing the code reveals another value for the *transactionState* to be in.  T
                 SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
             }
         }
+        
+There are many pieces here, putting them together successfully can provide a new way to monetize your app.  If copying and pasting all the code snippets is too much for you, download an assembled source file [here]().  Before the app is released, however, it's important to test the IAP.  This is not as straight forward as it seems.
 
+#Testing 
 
-#Testing and Reporting
+In order to test implemeneted IAPs, you need to create a Sandbox Tester account to perform test purchases.  This is a simple process done in iTunes Connect.  Sign back in to iTunes Connect and navigate to "Users and Roles".  Select the "Sandbox Testers" tab, which will land you at something like this:
+
+![](./sandbox_testers.png)
+
+Follow the directions to start creating a new tester.  You will need to provide some basic information to create the account.  Once the account is created, you will need to sign on to the device you are testing with the sandbox account you created.  You can then go ahead and attempt the purchase with the sandbox account.  The purchase dialog will let you know you are in the sandbox:
+
+![](./sandbox_dialog.png)
+
+You will get the appropriate responses back from Apple so you can verify the purchases work without being charged.  Now that you have created the IAP, implemented the transaction and tested the process it's time to finish up the app and ship it to the App Store  
 
 #Summary
+
+
 
 
 
