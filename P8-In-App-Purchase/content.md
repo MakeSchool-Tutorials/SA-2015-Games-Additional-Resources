@@ -36,7 +36,7 @@ The first step is to use the *SKPaymentQueue* and *SKProductsRequest* classes to
 		func attemptPurchase(productName: String) {
             if (SKPaymentQueue.canMakePayments()) {
                 var productID:NSSet = NSSet(object: productName)
-                var productRequest:SKProductsRequest = SKProductsRequest(productIdentifiers: productID)
+                var productRequest:SKProductsRequest = SKProductsRequest(productIdentifiers: productID as Set<NSObject>)
                 productRequest.delegate = self
                 productRequest.start()
             } else {
@@ -44,7 +44,7 @@ The first step is to use the *SKPaymentQueue* and *SKProductsRequest* classes to
             }
         }
         
-Reviewing the code reveals that we need to set a delegate as part of the process.  The protocol for this delegate is *SKProductsRequestDelegate*.  This delegate will call back once the _productRequest_ object finished its task.  The function it calls back it is productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!), so implementing it is required to conform to the protocol.  
+Reviewing the code reveals that we need to set a delegate as part of the process.  The protocol for this delegate is *SKProductsRequestDelegate*.  This delegate will call back once the _productRequest_ object finished its task.  The function it calls back it is productsRequest(_: SKProductsRequest!, didReceiveResponse _: SKProductsResponse!), so implementing it is required to conform to the protocol.  
 
 The function gives back the original request and a *SKProductsResponse* object, which contains the results of searching for the string you initially provided.  If the string matches the productID entered in iTunes Connect, the *SKProductsResponse* object will contain (among other things) an array which contains a *SKProduct* object.  We can use this object to continue the purchase process.  
 
@@ -53,14 +53,14 @@ The function gives back the original request and a *SKProductsResponse* object, 
       		var count: Int = response.products.count
       		if (count > 0) {
 	           var validProducts = response.products
-	           var product = validProducts[0] as SKProduct
+	           var product = validProducts[0] as! SKProduct
 			   buyProduct(product)
       		} else {
    				//something went wrong with lookup, try again?
 			}
 		}
 
-Now that you have a valid *SKProduct* object, you can now offer the product to the user to buy.    Construct an *SKPayment* object out the product.  The payment is processed through the *SKPaymentQueue* class, and calls back through another protocol.  This protocol is called *SKPaymentTransactionObserver*.  The class provides a singleton, _defaultQueue()_, to set up the observer and start the payment process.  
+Now that you have a valid *SKProduct* object, you can now offer the product to the user to buy.    Construct an *SKPayment* object out the product.  The payment object is processed through the *SKPaymentQueue* class.  The class provides a singleton, _defaultQueue()_, to set up the observer and start the payment process.  The _buyProduct()_ function encapsulates this and can look something like this:
 
         //called after delegate method productRequest
         func buyProduct(product: SKProduct) {
@@ -69,8 +69,11 @@ Now that you have a valid *SKProduct* object, you can now offer the product to t
             SKPaymentQueue.defaultQueue().addPayment(payment)
         }
 
-xxx
+Now the final step is listening for the observer callbacks from the *SKPaymentQueue* through the protocol *SKPaymentTransactionObserver*.  In order to conform to the protocol, the function paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) has to be implemented. 
 
+This function will be called multiple times as the transaction is processed.  *SKPaymentTransaction* objects contained in the _transactions_ argument have a _transactionState_ property that should be examined.  This will inform the state of any transaction in progress.  When the property reaches a .Purchased or .Failed state, the transaction should be finished and appropriate actions should be taken.  
+
+The transaction is finished by providing the transaction as an argument to a _queue.finishTransaction(:)_ function call.  You should also take action to notify the user and make the product available after a successful purchase.  This is the most complicated and important bit of code yet.  Here's an example:
 
         //SKPaymentTransactionObserver method
         func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
@@ -85,9 +88,21 @@ xxx
                         println("oops, purchase failed!")
                         queue.finishTransaction(tx)
                     case .Purchasing, Deferred:
-                        println("waiting for completion..."
+                        println("waiting for completion...")
                     }
                 }
+            }
+        }
+        
+Reviewing the code reveals another value for the *transactionState* to be in.  The extra state to be aware of is _.Restored_.  Any IAP that is non-consumable has to have a mechanism to restore it.  Apple will not approve an app that does not have this.  Fortunately, there is a straightforward way to initiate the restoration.  
+
+
+
+        //called by you, to start restore purchase process
+        func attemptRestorePurchase() {
+            if (SKPaymentQueue.canMakePayments()) {
+                SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+                SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
             }
         }
 
