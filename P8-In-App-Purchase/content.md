@@ -107,9 +107,11 @@ Follow the directions to start creating a new tester.  You will need to provide 
 
 ![](./sandbox_dialog.png)
 
-You will get the appropriate responses back from Apple so you can verify the purchases work without being charged.  Now that you have created the IAP, implemented the transaction and tested the process it's time to finish up the app and ship it to the App Store  
+You will get the appropriate responses back from Apple so you can verify the purchases work without being charged.  Now that you have created the IAP, implemented the transaction and tested the process it's time to finish up the app and ship it to the App Store.
 
 #Summary
+
+Apple provides the StoreKit framework to let customers buy products while inside a running app.  It is a multi-step process to perform the IAP: register the purchase in iTunes Connect, use the *SKProductsRequest* class to lookup the product, then initiate the transaction with the *SKPaymentQueue*.  To test the IAP while in development, a sandbox tester account is required.  This kind of account can be created in iTunes Connect.  If you choose to have non-consumable purchases, you **must** provide a way for customers to restore purchases.  **Apple will not approve an app that does not provide this**.  Now you have the tools needed to further monetize your app.  Happy coding!
 
 
 
