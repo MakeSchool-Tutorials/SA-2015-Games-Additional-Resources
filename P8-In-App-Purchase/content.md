@@ -97,7 +97,7 @@ Reviewing the code reveals another value for the *transactionState* to be in.  T
             }
         }
         
-There are many pieces here, putting them together successfully can provide a new way to monetize your app.  If copying and pasting all the code snippets is too much for you, download an assembled source file [here]().  Before the app is released, however, it's important to test the IAP.  This is not as straight forward as it seems.
+There are many pieces here, putting them together successfully can provide a new way to monetize your app.  If copying and pasting all the code snippets is too much for you, download an assembled source file [here](https://github.com/MakeSchool-Tutorials/SA-2015-Games-Additional-Resources/raw/master/P8-In-App-Purchase/IAPHelper.swift).  Before the app is released, however, it's important to test the IAP.  This is not as straight forward as it seems.
 
 #Testing 
 
