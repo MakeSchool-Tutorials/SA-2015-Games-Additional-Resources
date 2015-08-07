@@ -53,7 +53,7 @@ The function gives back the original request and a *SKProductsResponse* object, 
 			}
 		}
 
-Now that you have a valid *SKProduct* object, you can now offer the product to the user to buy.    Construct an *SKPayment* object out the product.  The payment object is processed through the *SKPaymentQueue* class.  The class provides a singleton, _defaultQueue()_, to set up the observer and start the payment process.  The _buyProduct()_ function encapsulates this and can look something like this:
+Now that you have a valid *SKProduct* object, you can now offer the product to the user to buy.    Construct an *SKPayment* object out the product.  The payment object is processed through the *SKPaymentQueue* class.  The class provides a [singleton](https://developer.apple.com/library/ios/documentation/General/Conceptual/DevPedia-CocoaCore/Singleton.html), _defaultQueue()_, to set up the [observer](https://en.wikipedia.org/wiki/Observer_pattern) and start the payment process.  The _buyProduct()_ function encapsulates this and can look something like this:
 
         //called after delegate method productRequest
         func buyProduct(product: SKProduct) {
