@@ -15,13 +15,15 @@ Navigate to the In-App Purchase tab and create a new IAP.  Now its time to choos
 
 Consumable purchases provide a benefit once, say some extra coins to spend.  Non-Consumable purchase provide a permanent benefit, like unlocking a new character.  Consumable purchases cannot be restored.  Non-consumable purchases can be restored, and Apple requires an app to allow customers to restore these purchases.  Regardless of the option you choose, the information required is similar across all types. 
 
+![](./iap_form.png)
+
 Once you select the type of purchase, you will need to complete the form describing the product you want to offer.  You will need to provide some unique identifiers for the product, the price, a customer facing name for the product and a relevant screenshot.  The important field that will be used later is the _Product ID_ field.  This is the string we will use in code to look up the product and offer it to the customer.  Save the form and keep that Product ID handy.
 
 #Write the Code
 
-With the IAP listed in iTunes Connect it's time to implement the purchase of the product.  The code is tricky and can be difficult to follow, but we'll provide some functioning code to build off of.  We'll be using Apple's StoreKit framework to fetch information, request and then execute purchases.
+With the IAP listed in iTunes Connect it's time to implement the purchase of the product.  The code is tricky and can be difficult to follow, but we'll provide some functioning code to build off of.  Don't worry if it doesn't make sense right away.  Click through the links to learn about advanced concepts you aren't familiar with.  We'll be using Apple's [StoreKit](https://developer.apple.com/library/mac/documentation/StoreKit/Reference/StoreKit_Collection/) framework to fetch information, request and then execute purchases.
 
-The first step is to use the *SKPaymentQueue* and *SKProductsRequest* classes to start the process.  This step has two tasks: check if a purchase is possible and then start a product request lookup based off of some string.  Here's an implemented example of the step:
+The first step is to look up product information.  The product was registered with Apple in iTunes Connect, we need to retrieve it.  The *SKProductsRequest* class will act as our black box to start talking to Apple.  It's also a good to check if purchases are currently possible.  That is done with a *SKPaymentQueue* class function.  Here's an implemented example of the step:
 
 		//called by you, to start purchase process
 		func attemptPurchase(productName: String) {
@@ -35,7 +37,7 @@ The first step is to use the *SKPaymentQueue* and *SKProductsRequest* classes to
             }
         }
         
-Reviewing the code reveals that we need to set a delegate as part of the process.  The protocol for this delegate is *SKProductsRequestDelegate*.  This delegate will call back once the _productRequest_ object finished its task.  The function it calls back it is productsRequest(_: SKProductsRequest!, didReceiveResponse _: SKProductsResponse!), so implementing it is required to conform to the protocol.  
+Reviewing the code reveals that we need to set a [delegate](https://developer.apple.com/library/mac/documentation/General/Conceptual/DevPedia-CocoaCore/Delegation.html) as part of the process.  The [protocol](https://developer.apple.com/library/mac/documentation/General/Conceptual/DevPedia-CocoaCore/Protocol.html#//apple_ref/doc/uid/TP40008195-CH45-SW1) for this delegate is *SKProductsRequestDelegate*.  This delegate will call back once the _productRequest_ object finished its task.  The function it calls back it is productsRequest(_: SKProductsRequest!, didReceiveResponse _: SKProductsResponse!), so implementing it is required to conform to the protocol.  
 
 The function gives back the original request and a *SKProductsResponse* object, which contains the results of searching for the string you initially provided.  If the string matches the productID entered in iTunes Connect, the *SKProductsResponse* object will contain (among other things) an array which contains a *SKProduct* object.  We can use this object to continue the purchase process.  
 
